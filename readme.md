@@ -6,16 +6,16 @@ A small mysql library.
 ## Installation
 
 ```
-composer require m/db
+composer require m/sql
 ```
 
 
 ## Usage
 
 ```php
-use m\Db;
+use sql\Mysql;
 
-$db = Db::fromConfig([
+$db = Mysql::fromConfig([
     "host" => "db01.internal",
     "user" => "app",
     "pass" => "secret",
@@ -46,8 +46,8 @@ interface DbInterface
 The config can be parsed from a URL and changed at will:
 
 ```php
-$db = Db::fromUrl("mysql://username:password@host/db");
-$db = Db::fromUrl($_ENV["DATABASE_URL"]);
+$db = Mysql::fromUrl("mysql://username:password@host/db");
+$db = Mysql::fromUrl($_ENV["DATABASE_URL"]);
 
 $currHost = $db->config("host");                   // get current config value
 $oldValue = $db->config("host", "db02.internal");  // change one item, returns old value
