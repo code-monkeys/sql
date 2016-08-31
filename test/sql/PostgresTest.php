@@ -81,6 +81,9 @@ class PostgresTest extends \PHPUnit_Framework_TestCase
         $num = $this->object->write($sql);
         $this->assertEquals(1, $num);
 
+        $oid = $this->object->insertId();
+        $this->assertEquals(1, $num);
+
         $sql = "SELECT * FROM tests";
         $arr = $this->object->read($sql);
         $this->assertEquals([["a" => 1, "b" => "OK"]], $arr);

@@ -77,7 +77,7 @@ class Postgres implements DbInterface
 
     public function insertId()
     {
-        return $this->connection->insert_id;
+        return \pg_last_oid($this->res);
     }
 
     protected function connect()
@@ -101,8 +101,8 @@ class Postgres implements DbInterface
         $this->connect();
 
         try {
-            $res = \pg_query($this->connection, $sql);
-            if ($res === false) {
+            $this->res = \pg_query($this->connection, $sql);
+            if ($this->res === false) {
                 throw new \RuntimeException(sprintf(
                     "%s from query <%s>.",
                     \pg_last_error($this->connection),
@@ -117,7 +117,7 @@ class Postgres implements DbInterface
             ));
         }
 
-        return $res;
+        return $this->res;
     }
 
 }
