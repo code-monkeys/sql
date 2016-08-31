@@ -1,6 +1,6 @@
 # m/sql
 
-A small mysql library.
+A small database library.
 
 
 ## Installation
@@ -57,7 +57,7 @@ $config   = $db->config();                         // get all config values
 
 ## Status
 
-[![Travis Status](https://api.travis-ci.org/dotser/db.svg?branch=master)](https://travis-ci.org/dotser/db)
-[![Latest Stable Version](https://poser.pugx.org/m/db/v/stable)](https://packagist.org/packages/m/db)
-[![Total Downloads](https://poser.pugx.org/m/db/downloads)](https://packagist.org/packages/m/db)
-[![Coverage Status](https://coveralls.io/repos/github/dotser/db/badge.svg?branch=master)](https://coveralls.io/github/dotser/db?branch=master)
+[![Travis Status](https://api.travis-ci.org/dotser/sql.svg?branch=master)](https://travis-ci.org/dotser/sql)
+[![Latest Stable Version](https://poser.pugx.org/m/sql/v/stable)](https://packagist.org/packages/m/sql)
+[![Total Downloads](https://poser.pugx.org/m/sql/downloads)](https://packagist.org/packages/m/sql)
+[![Coverage Status](https://coveralls.io/repos/github/dotser/sql/badge.svg?branch=master)](https://coveralls.io/github/dotser/sql?branch=master)
