@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="m/db" basedir="." default="build">
+
+  <target name="build"
+    description="Runs default PHP tasks"
+    depends="php:lint,php:test">
+  </target>
+
+  <target name="php:update"
+    description="Updates PHP dependencies.">
+    <exec executable="composer" failonerror="true">
+      <arg value="update"/>
+    </exec>
+  </target>
+
+  <target name="php:install"
+    description="Install PHP dependencies.">
+    <exec executable="composer" failonerror="true">
+      <arg value="install"/>
+    </exec>
+  </target>
+
+  <target name="php:lint"
+    description="Perform syntax check of sourcecode files.">
+    <apply executable="php" failonerror="true">
+      <arg value="-l" />
+      <fileset dir="${basedir}/src">
+        <include name="**/*.php" />
+        <modified />
+      </fileset>
+      <fileset dir="${basedir}/test">
+        <include name="**/*.php" />
+        <modified />
+      </fileset>
+    </apply>
+  </target>
+
+  <target name="php:test"
+    description="Run PHP tests.">
+    <exec executable="${basedir}/vendor/bin/phpunit"
+      failonerror="true">
+    </exec>
+  </target>
+
+  <target name="clean" description="Remove all build directories" >
+    <delete includeEmptyDirs="true">
+      <fileset dir="build"/>
+    </delete>
+  </target>
+
+</project>
