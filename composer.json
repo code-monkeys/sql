@@ -1,5 +1,5 @@
 {
-  "name": "db/sql",
+  "name": "m/sql",
   "version": "v0.1.0",
   "require-dev": {
     "phpunit/phpunit": "*",
