@@ -88,7 +88,7 @@ class PostgresTest extends \PHPUnit_Framework_TestCase
         $arr = $this->object->read($sql);
         $this->assertEquals([["a" => 1, "b" => "OK"]], $arr);
 
-        $this->object->write("DROP TABLE IF EXISTS tests");
+        // $this->object->write("DROP TABLE IF EXISTS tests");
     }
 
     /**
