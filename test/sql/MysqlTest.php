@@ -73,17 +73,18 @@ class MysqlTest extends \PHPUnit_Framework_TestCase
     {
         $this->object->write("DROP TABLE IF EXISTS tests");
 
-        $sql = "CREATE TABLE tests (a INT, b CHAR(10))";
+        $sql = "CREATE TABLE tests (time INT, status CHAR(10))";
         $num = $this->object->write($sql);
         $this->assertEquals(0, $num);
 
-        $sql = "INSERT INTO tests VALUES (1, 'OK')";
+        $now = time();
+        $sql = "INSERT INTO tests VALUES ({$now}, 'test')";
         $num = $this->object->write($sql);
         $this->assertEquals(1, $num);
 
         $sql = "SELECT * FROM tests";
         $arr = $this->object->read($sql);
-        $this->assertEquals([["a" => 1, "b" => "OK"]], $arr);
+        $this->assertEquals([["time" => $now, "status" => "test"]], $arr);
 
         // $this->object->write("DROP TABLE IF EXISTS tests");
     }
