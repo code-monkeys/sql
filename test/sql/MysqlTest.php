@@ -10,6 +10,7 @@ class MysqlTest extends \PHPUnit_Framework_TestCase
     public function setup()
     {
         $this->object = new Mysql();
+        $this->object = Mysql::fromUrl($_ENV["MYSQL_URL"]);
     }
 
     public function testInstanceOf()
